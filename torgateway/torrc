@@ -1,0 +1,26 @@
+# This is a configuration for a Tor bridge on the WAN interface
+# and it also runs with a transport to allow for transparent proxying
+# on a specific wireless interface.
+#
+User tor
+RunAsDaemon 1
+PidFile /var/run/tor.pid
+DataDirectory /var/lib/tor
+
+# This is for our transparent network
+VirtualAddrNetwork 10.192.0.0/10
+AutomapHostsOnResolve 1
+TransPort 9040
+TransListenAddress 172.16.42.1
+DNSPort 9053
+DNSListenAddress 172.16.42.1
+
+# Log notices to syslog
+Log notice syslog
+
+
+# Auth port to control tor process
+ControlPort 9051
+ControlListenAddress 127.0.0.1
+# Password = fruitsalad
+HashedControlPassword 16:BCACEA66750069B960A728A7BEB6F4BA7DD1C2E444DFF73BF867A98343
