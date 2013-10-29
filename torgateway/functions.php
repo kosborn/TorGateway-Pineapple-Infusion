@@ -85,7 +85,7 @@ function toggle_tor($interface='br-lan'){
 function tor_apply_iptables($action,$interface){
 	# TODO: reivew these rules. They are from https://trac.torproject.org/projects/tor/wiki/doc/OpenWRT
 	$torDNS = "iptables -t nat -{$action} PREROUTING -i {$interface} -p udp --dport 53 -j REDIRECT --to-ports 9053";
-	$torTCP = "iptables -t nat -{$action} PREROUTING -i {$interface} ! -d 172.16.42.1  -p tcp ! --dport 53 --syn -j REDIRECT --to-ports 9040";
+	$torTCP = "iptables -t nat -{$action} PREROUTING -i {$interface} ! -d Pineapple.lan  -p tcp ! --dport 53 --syn -j REDIRECT --to-ports 9040";
 
 	# TODO: Add a check to verify the commands ran sucesfully
 	exec($torDNS);
