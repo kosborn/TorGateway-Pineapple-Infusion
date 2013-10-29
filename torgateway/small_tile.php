@@ -9,7 +9,7 @@ if(!is_tor_installed()){
 <script src=/components/infusions/torgateway/includes/js/infusion.js></script>
 <script>
 // To fix setting multiple intervals
-if (typeof FFintervalID == 'undefined'){
+if (typeof SFintervalID == 'undefined'){
 	SFintervalID = setInterval(getTorSmallFrame,3000);
 }
 </script>

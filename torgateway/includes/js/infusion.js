@@ -2,8 +2,8 @@ function torgateway_take_action(action_value,appendTo) {
 	appendTo = appendTo || 'tor_result';
 	$.get("/components/infusions/torgateway/includes/actions.php", 'action='+action_value, 
 		function(data){
-			$( "."+appendTo ).append( data+"\n" );
-			$( ".mini_tor_result" ).append( data+"\n" );}
+			$( "."+appendTo ).prepend( data+"\n" );
+			$( ".mini_tor_result" ).prepend( data+"\n" );}
 		)
 }
 
